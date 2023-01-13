@@ -57,6 +57,7 @@ namespace flowpanel_of_usercontrol
             Parent.SizeChanged += (sender, e) => Width = getWidth();
         }
         int VSBW { get; } = SystemInformation.VerticalScrollBarWidth;
+
         private int getWidth() =>
             Parent.Width -
                 Parent.Padding.Left -

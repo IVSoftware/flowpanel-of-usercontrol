@@ -40,8 +40,18 @@ namespace flowpanel_of_usercontrol
                 Category = "Hardwood",
                 Description = "Bolivian Rosewood",
             });
+
+            #region G L Y P H S
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fonts", "search-refresh-exchange-plus.ttf");
+            privateFontCollection.AddFontFile(path);
+            var fontFamily = privateFontCollection.Families[0];
+            Glyphs = new Font(fontFamily, 12F);
+            labelSearch.Font = Glyphs;
+            labelSearch.Text = "\uE800";
+            #endregion G L Y P H S
         }
         PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+        private Font Glyphs;
     }
     class CustomFlowLayoutTable : FlowLayoutPanel
     {

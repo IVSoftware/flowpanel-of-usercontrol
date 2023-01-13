@@ -31,6 +31,7 @@
             this.flowLayoutPanel = new flowpanel_of_usercontrol.CustomFlowLayoutTable();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelSearch = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.flowLayoutPanel.Location = new System.Drawing.Point(2, 55);
             this.flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(431, 697);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(431, 647);
             this.flowLayoutPanel.TabIndex = 0;
             // 
             // textBox1
@@ -68,6 +69,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelSearch, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -75,11 +77,26 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(420, 49);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // labelSearch
+            // 
+            this.labelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Location = new System.Drawing.Point(0, 3);
+            this.labelSearch.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(40, 46);
+            this.labelSearch.TabIndex = 2;
+            this.labelSearch.Text = "*";
+            this.labelSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSearch.UseCompatibleTextRendering = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 744);
+            this.ClientSize = new System.Drawing.Size(428, 694);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.flowLayoutPanel);
             this.Name = "MainForm";
@@ -95,5 +112,6 @@
         private CustomFlowLayoutTable flowLayoutPanel;
         private TextBox textBox1;
         private TableLayoutPanel tableLayoutPanel1;
+        private Label labelSearch;
     }
 }
