@@ -6,7 +6,6 @@ For something light-duty, it's pretty easy to use a flow layout panel to show a 
 
     class CustomFlowLayoutTable : FlowLayoutPanel
     {
-        int _id = 0;
         public CustomFlowLayoutTable()
         {
             Padding = new Padding(0);

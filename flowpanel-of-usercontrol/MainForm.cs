@@ -11,7 +11,6 @@ namespace flowpanel_of_usercontrol
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            var VSBW = SystemInformation.VerticalScrollBarWidth;
             flowLayoutPanel.Products.Add(new ProductCard
             {
                 Name = $"userControl{_count++}",  // No space, start with lowercase
@@ -52,7 +51,6 @@ namespace flowpanel_of_usercontrol
     }
     class CustomFlowLayoutTable : FlowLayoutPanel
     {
-        int _id = 0;
         public CustomFlowLayoutTable()
         {
             Padding = new Padding(0);
