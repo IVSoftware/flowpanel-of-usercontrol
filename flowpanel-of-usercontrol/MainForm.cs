@@ -53,7 +53,6 @@ namespace flowpanel_of_usercontrol
     {
         public CustomFlowLayoutTable()
         {
-            Padding = new Padding(0);
             AutoScroll = true;
             Products.ListChanged += (sender, e) =>
             {

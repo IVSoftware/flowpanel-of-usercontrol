@@ -1,14 +1,15 @@
 For something light-duty, it's pretty easy to use a flow layout panel to show a bound table in a scrollable list. A quick proof-of-concept is shown below [[clone](https://github.com/IVSoftware/flowpanel-of-usercontrol.git)]. 
 
-*For production use or with huge tables there are at least three big companies producing sophisticated custom WinForms components of this nature that have free trial licenses. IMO one "might" want to weight the benefits vs the cost.*
+*For production use or with huge tables there are at least three major companies producing sophisticated custom WinForms components of this nature that have free trial licenses. IMO one "might" want to weight the benefits vs the cost.*
 
 [![screenshot][1]][1]
+
+
 
     class CustomFlowLayoutTable : FlowLayoutPanel
     {
         public CustomFlowLayoutTable()
         {
-            Padding = new Padding(0);
             AutoScroll = true;
             Products.ListChanged += (sender, e) =>
             {
@@ -29,10 +30,13 @@ For something light-duty, it's pretty easy to use a flow layout panel to show a 
 
     public partial class ProductCard : UserControl
     {
+        int _id = 0;
         public ProductCard()
         {
             InitializeComponent();
-            Margin = new Padding(4, 4, 4, 0);
+            Padding = new Padding(0);
+            Margin = new Padding(2);
+            Name = $"userControl{_id++}";  // No space, start with lowercase
         }
         public string Description
         {
@@ -47,6 +51,7 @@ For something light-duty, it's pretty easy to use a flow layout panel to show a 
                         "Images",
                         $"{Description}.png"
                     );
+                    // Set the "Copy to Output Directory" property of all image files.
                     if (File.Exists(imagePath))
                     {
                         pictureBox.Image = Image.FromFile(imagePath);
@@ -63,13 +68,17 @@ For something light-duty, it's pretty easy to use a flow layout panel to show a 
         {
             base.OnHandleCreated(e);
             Width = getWidth();
-            Parent.SizeChanged += (sender, e) =>
-            {
-                Width = getWidth();
-            };
+            // Respond to width changes of owner container.
+            Parent.SizeChanged += (sender, e) => Width = getWidth();
         }
         int VSBW { get; } = SystemInformation.VerticalScrollBarWidth;
-        private int getWidth() => Parent.Width - 8 - VSBW;
+        private int getWidth() => 
+            Parent.Width - 
+                Parent.Padding.Left - 
+                Parent.Padding.Right -
+                Margin.Left - 
+                Margin.Right - 
+                VSBW;
     }
 
 ***
@@ -79,44 +88,36 @@ For something light-duty, it's pretty easy to use a flow layout panel to show a 
     {
         public MainForm() => InitializeComponent();
 
-        int _count = 0;
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            var VSBW = SystemInformation.VerticalScrollBarWidth;
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Caserta Stone Beige",
             });
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Caserta Sky Grey",
             });
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Ageless Beauty Clay",
             });
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Lush II Tundra",
             });
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Lush II Frosty Glade",
             });
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Hardwood",
                 Description = "Bolivian Rosewood",
             });
@@ -124,4 +125,4 @@ For something light-duty, it's pretty easy to use a flow layout panel to show a 
     }
 
 
-  [1]: https://i.stack.imgur.com/PAeUJ.png
+  [1]: https://i.stack.imgur.com/rElri.png

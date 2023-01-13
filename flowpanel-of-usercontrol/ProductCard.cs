@@ -30,6 +30,7 @@ namespace flowpanel_of_usercontrol
                         "Images",
                         $"{Description}.png"
                     );
+                    // Set the "Copy to Output Directory" property of all image files.
                     if (File.Exists(imagePath))
                     {
                         pictureBox.Image = Image.FromFile(imagePath);
@@ -52,6 +53,7 @@ namespace flowpanel_of_usercontrol
             };
         }
         int VSBW { get; } = SystemInformation.VerticalScrollBarWidth;
-        private int getWidth() => Parent.Width - 8 - VSBW;
+        private int getWidth() => 
+            Parent.Width - Margin.Left - Margin.Right - VSBW;
     }
 }
