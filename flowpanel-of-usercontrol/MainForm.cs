@@ -12,66 +12,63 @@ namespace flowpanel_of_usercontrol
         {
             base.OnLoad(e);
             var VSBW = SystemInformation.VerticalScrollBarWidth;
-            flowLayoutPanel.Controls.Add(new ProductCard
+            flowLayoutPanel.Products.Add(new ProductCard
             {
                 Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Caserta Stone Beige",
-                Margin = new Padding(4, 4, 4, 0),
-                Width = flowLayoutPanel.Width - 8 - VSBW,
             });
-            flowLayoutPanel.Controls.Add(new ProductCard
+            flowLayoutPanel.Products.Add(new ProductCard
             {
                 Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Caserta Sky Grey",
-                Margin = new Padding(4, 4, 4, 0),
-                Width = flowLayoutPanel.Width - 8 - VSBW,
             });
-            flowLayoutPanel.Controls.Add(new ProductCard
+            flowLayoutPanel.Products.Add(new ProductCard
             {
                 Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Ageless Beauty Clay",
-                Margin = new Padding(4, 4, 4, 0),
-                Width = flowLayoutPanel.Width - 8 - VSBW,
             });
-            flowLayoutPanel.Controls.Add(new ProductCard
+            flowLayoutPanel.Products.Add(new ProductCard
             {
                 Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Lush II Tundra",
-                Margin = new Padding(4, 4, 4, 0),
-                Width = flowLayoutPanel.Width - 8 - VSBW,
             });
-            flowLayoutPanel.Controls.Add(new ProductCard
+            flowLayoutPanel.Products.Add(new ProductCard
             {
                 Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Lush II Frosty Glade",
-                Margin = new Padding(4, 4, 4, 0),
-                Width = flowLayoutPanel.Width - 8 - VSBW,
             });
-            flowLayoutPanel.Controls.Add(new ProductCard
+            flowLayoutPanel.Products.Add(new ProductCard
             {
                 Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Hardwood",
                 Description = "Bolivian Rosewood",
-                Margin = new Padding(4, 4, 4, 0),
-                Width = flowLayoutPanel.Width - 8 - VSBW,
             });
         }
     }
     class CustomFlowLayoutTable : FlowLayoutPanel
     {
+        int _id = 0;
         public CustomFlowLayoutTable()
         {
             Padding = new Padding(0);
             AutoScroll = true;
-            Products.AddingNew += (sender, e) =>
+            Products.ListChanged += (sender, e) =>
             {
+                switch (e.ListChangedType)
+                {
+                    case ListChangedType.ItemAdded:
+                        Controls.Add(Products[e.NewIndex]);
+                        break;
+                    default:
+                        break;
+                }
             };
         }
-        BindingList<ProductCard> Products = new BindingList<ProductCard>();
+        public BindingList<ProductCard> Products = new BindingList<ProductCard>();
     }
 }

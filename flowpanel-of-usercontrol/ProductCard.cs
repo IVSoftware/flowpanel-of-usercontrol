@@ -15,6 +15,7 @@ namespace flowpanel_of_usercontrol
         public ProductCard()
         {
             InitializeComponent();
+            Margin = new Padding(4, 4, 4, 0);
         }
         public string Description
         {
