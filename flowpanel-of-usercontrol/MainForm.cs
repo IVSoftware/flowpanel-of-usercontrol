@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace flowpanel_of_usercontrol
@@ -67,6 +68,10 @@ namespace flowpanel_of_usercontrol
         {
             Padding = new Padding(0);
             AutoScroll = true;
+            Products.AddingNew += (sender, e) =>
+            {
+            };
         }
+        BindingList<ProductCard> Products = new BindingList<ProductCard>();
     }
 }
