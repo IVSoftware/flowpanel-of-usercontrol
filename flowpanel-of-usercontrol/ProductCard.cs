@@ -18,6 +18,8 @@ namespace flowpanel_of_usercontrol
             InitializeComponent();
             Padding = new Padding(0);
             Margin = new Padding(2);
+            pictureBox.Padding = new Padding(8);
+            labelExp.Click += (sender, e) => MessageBox.Show($"{this}");
             Name = $"userControl{_id++}";  // No space, start with lowercase
         }
         public string Description
@@ -61,5 +63,7 @@ namespace flowpanel_of_usercontrol
                 Margin.Left -
                 Margin.Right -
                 VSBW;
+        public override string ToString() =>
+            $"{Category}{Environment.NewLine}{Description}";
     }
 }
