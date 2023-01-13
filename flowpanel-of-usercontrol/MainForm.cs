@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace flowpanel_of_usercontrol
@@ -6,48 +7,41 @@ namespace flowpanel_of_usercontrol
     public partial class MainForm : Form
     {
         public MainForm() => InitializeComponent();
-
-        int _count = 0;
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Caserta Stone Beige",
             });
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Caserta Sky Grey",
             });
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Ageless Beauty Clay",
             });
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Lush II Tundra",
             });
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Carpet",
                 Description = "Lush II Frosty Glade",
             });
             flowLayoutPanel.Products.Add(new ProductCard
             {
-                Name = $"userControl{_count++}",  // No space, start with lowercase
                 Category = "Hardwood",
                 Description = "Bolivian Rosewood",
             });
         }
+        PrivateFontCollection privateFontCollection = new PrivateFontCollection();
     }
     class CustomFlowLayoutTable : FlowLayoutPanel
     {

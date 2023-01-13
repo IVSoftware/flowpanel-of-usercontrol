@@ -16,6 +16,7 @@ namespace flowpanel_of_usercontrol
         public ProductCard()
         {
             InitializeComponent();
+            Name = $"userControl{_id++}";  // No space, start with lowercase
             Padding = new Padding(0);
             Margin = new Padding(2);
             pictureBox.Padding = new Padding(8);
