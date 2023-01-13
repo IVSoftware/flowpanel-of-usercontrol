@@ -12,10 +12,13 @@ namespace flowpanel_of_usercontrol
 {
     public partial class ProductCard : UserControl
     {
+        int _id = 0;
         public ProductCard()
         {
             InitializeComponent();
-            Margin = new Padding(4, 4, 4, 0);
+            Padding = new Padding(0);
+            Margin = new Padding(2);
+            Name = $"userControl{_id++}";  // No space, start with lowercase
         }
         public string Description
         {
@@ -47,13 +50,16 @@ namespace flowpanel_of_usercontrol
         {
             base.OnHandleCreated(e);
             Width = getWidth();
-            Parent.SizeChanged += (sender, e) =>
-            {
-                Width = getWidth();
-            };
+            // Respond to width changes of owner container.
+            Parent.SizeChanged += (sender, e) => Width = getWidth();
         }
         int VSBW { get; } = SystemInformation.VerticalScrollBarWidth;
-        private int getWidth() => 
-            Parent.Width - Margin.Left - Margin.Right - VSBW;
+        private int getWidth() =>
+            Parent.Width -
+                Parent.Padding.Left -
+                Parent.Padding.Right -
+                Margin.Left -
+                Margin.Right -
+                VSBW;
     }
 }
