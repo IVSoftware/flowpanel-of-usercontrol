@@ -4,8 +4,6 @@ For something light-duty, it's pretty easy to use a flow layout panel to show a 
 
 [![screenshot][1]][1]
 
-
-
     class CustomFlowLayoutTable : FlowLayoutPanel
     {
         public CustomFlowLayoutTable()
@@ -125,4 +123,4 @@ For something light-duty, it's pretty easy to use a flow layout panel to show a 
     }
 
 
-  [1]: https://i.stack.imgur.com/rElri.png
+  [1]: https://i.stack.imgur.com/NGBW9.png
