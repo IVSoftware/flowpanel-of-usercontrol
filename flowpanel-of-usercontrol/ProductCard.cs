@@ -29,18 +29,28 @@ namespace flowpanel_of_usercontrol
                         "Images",
                         $"{Description}.png"
                     );
-                    if(File.Exists(imagePath))
+                    if (File.Exists(imagePath))
                     {
                         pictureBox.Image = Image.FromFile(imagePath);
                     }
                 }
             }
         }
-
-        public string Category 
+        public string Category
         {
             get => labelCategory.Text;
-            set => labelCategory.Text = value; 
+            set => labelCategory.Text = value;
         }
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            Width = getWidth();
+            Parent.SizeChanged += (sender, e) =>
+            {
+                Width = getWidth();
+            };
+        }
+        int VSBW { get; } = SystemInformation.VerticalScrollBarWidth;
+        private int getWidth() => Parent.Width - 8 - VSBW;
     }
 }

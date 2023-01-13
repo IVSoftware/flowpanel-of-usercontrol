@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel = new CustomFlowLayoutTable();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -40,16 +40,19 @@
             this.flowLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(96)))), ((int)(((byte)(178)))));
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 46);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(481, 697);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(431, 697);
             this.flowLayoutPanel.TabIndex = 0;
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(0, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Search Items";
-            this.textBox1.Size = new System.Drawing.Size(302, 39);
+            this.textBox1.Size = new System.Drawing.Size(431, 39);
             this.textBox1.TabIndex = 1;
             this.textBox1.TabStop = false;
             // 
@@ -57,7 +60,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 744);
+            this.ClientSize = new System.Drawing.Size(428, 744);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.flowLayoutPanel);
             this.Name = "MainForm";
@@ -69,7 +72,7 @@
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel;
+        private CustomFlowLayoutTable flowLayoutPanel;
         private TextBox textBox1;
     }
 }
