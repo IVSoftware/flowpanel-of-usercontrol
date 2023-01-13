@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel = new flowpanel_of_usercontrol.CustomFlowLayoutTable();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelSearch = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -50,17 +50,17 @@
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(43, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Search Items";
-            this.textBox1.Size = new System.Drawing.Size(374, 43);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TabStop = false;
+            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSearch.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxSearch.Location = new System.Drawing.Point(43, 3);
+            this.textBoxSearch.Name = "textBox1";
+            this.textBoxSearch.PlaceholderText = "Search Items";
+            this.textBoxSearch.Size = new System.Drawing.Size(374, 43);
+            this.textBoxSearch.TabIndex = 1;
+            this.textBoxSearch.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
@@ -68,7 +68,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxSearch, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelSearch, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -110,7 +110,7 @@
         #endregion
 
         private CustomFlowLayoutTable flowLayoutPanel;
-        private TextBox textBox1;
+        private TextBox textBoxSearch;
         private TableLayoutPanel tableLayoutPanel1;
         private Label labelSearch;
     }

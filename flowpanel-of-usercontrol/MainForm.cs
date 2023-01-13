@@ -48,8 +48,10 @@ namespace flowpanel_of_usercontrol
             Glyphs = new Font(fontFamily, 12F);
             labelSearch.Font = Glyphs;
             labelSearch.Text = "\uE800";
+            textBoxSearch.TextChanged += (sender, e) => flowLayoutPanel.Search(textBoxSearch.Text);
             #endregion G L Y P H S
         }
+
         PrivateFontCollection privateFontCollection = new PrivateFontCollection();
         private Font Glyphs;
     }
@@ -71,5 +73,26 @@ namespace flowpanel_of_usercontrol
             };
         }
         public BindingList<ProductCard> Products = new BindingList<ProductCard>();
+
+        internal void Search(string text)
+        {
+            if(string.IsNullOrWhiteSpace(text))
+            {
+                foreach (var product in Products)
+                {
+                    product.Visible = true;
+                }
+            }
+            else
+            {
+                foreach (var product in Products)
+                {
+                    product.Visible = 
+                        product.Description.Contains(
+                            text, 
+                            StringComparison.OrdinalIgnoreCase);
+                }
+            }
+        }
     }
 }
